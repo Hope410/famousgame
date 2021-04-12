@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 import Vector2D from '@/utils/Vector2D';
 
-import { ERRORS } from '@/config';
+import * as ERRORS from '@/config/errors';
 import { Tuple2D } from '@/types';
 
 import Tile from './Tile';
@@ -43,7 +43,7 @@ export default class Game {
     this.tileGroup = new TileGroup(this.initialTile, this.tileMap);
   }
 
-  get initialTile() {
+  private get initialTile() {
     const tile = this.tileMap.get(new Vector2D(0, 0).asKey());
     if (!tile) {
       throw new Error(ERRORS.NO_INITIAL_TILE);
@@ -52,28 +52,10 @@ export default class Game {
     return tile;
   }
 
-  // get tileGroup() {
-  //   const findNeighbors = (tile: Tile, tileGroup: TileSet): TileSet => {
-  //     const neighbors = this.tileMap
-  //       .neighborsFor(tile)
-  //       .filter((neighbor) => !tileGroup.get(neighbor.position.asKey()))
-  //       .filter((neighbor) => neighbor.color === tile.color);
-
-  //     if (neighbors.size > 0) {
-  //       [...neighbors.values()].forEach((neighbor) =>
-  //         tileGroup.set(neighbor.position.asKey(), neighbor)
-  //       );
-
-  //       return tileGroup.union(
-  //         [...neighbors.values()]
-  //           .map((neighborTile) => findNeighbors(neighborTile, tileGroup))
-  //           .reduce((acc, set) => acc.union(set), new TileSet())
-  //       );
-  //     }
-
-  //     return tileGroup;
-  //   };
-
-  //   return findNeighbors(this.initialTile, new TileSet([this.initialTile]));
-  // }
+  get isWin() {
+    return _.every(
+      [...this.tileMap.values()],
+      (tile) => tile.color === this.initialTile.color
+    );
+  }
 }

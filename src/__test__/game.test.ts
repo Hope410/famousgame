@@ -39,16 +39,38 @@ describe('For predefined TileMap 5x5', () => {
     expect(game.tileMap.size).toBe(tileMapSize[0] * tileMapSize[1]);
   });
 
-  test('Initial tile group size must be equal to 7', () => {
+  test('Initial TileGroup size must be equal to 7', () => {
     expect(game.tileGroup.size).toBe(7);
   });
 
-  test('Change TileGroup Color to green', () => {
+  test('Change TileGroup color to green', () => {
     game.tileGroup.setColor(GREEN);
-    game.tileGroup.forEach((tile) => expect(tile.color).toBe('green'));
+    game.tileGroup.forEach((tile) => expect(tile.color).toBe(GREEN));
   });
 
-  test('Initial tile group size must be equal to 11', () => {
+  test('Green TileGroup size must be equal to 11', () => {
     expect(game.tileGroup.size).toBe(11);
+  });
+
+  test('Change TileGroup color to blue', () => {
+    game.tileGroup.setColor(BLUE);
+    game.tileGroup.forEach((tile) => expect(tile.color).toBe(BLUE));
+  });
+
+  test('Blue TileGroup size must be equal to 20', () => {
+    expect(game.tileGroup.size).toBe(20);
+  });
+
+  test('Change TileGroup color to red', () => {
+    game.tileGroup.setColor(RED);
+    game.tileGroup.forEach((tile) => expect(tile.color).toBe(RED));
+  });
+
+  test('Red TileGroup size must be equal to 25', () => {
+    expect(game.tileGroup.size).toBe(25);
+  });
+
+  test('Game solved!', () => {
+    expect(game.isWin).toBe(true);
   });
 });

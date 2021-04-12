@@ -8,13 +8,14 @@ const config: webpack.Configuration = {
   mode: "development",
   devServer: {
     compress: true,
-    port: 8080,
-    host: '0.0.0.0',
-  },
-  resolveLoader: {
-    alias: {
-      '@': './src'
-    }
+    port: 3000,
+    hot: true,
+    host: "0.0.0.0",
+    allowedHosts: [
+      ".repl.it",
+      ".repl.co",
+      ".repl.run"
+    ]
   },
   entry: "./src/main.ts",
   module: {
@@ -27,6 +28,9 @@ const config: webpack.Configuration = {
     ],
   },
   resolve: {
+    alias: {
+      '@': './'
+    },
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {

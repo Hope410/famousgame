@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
-import { DELIMITER, ERRORS } from '@/config';
+import * as ERRORS from '@/config/errors';
+import { DELIMITER } from '@/config/settings';
 import { Tuple2D } from '@/types';
 
 export default class Vector2D {

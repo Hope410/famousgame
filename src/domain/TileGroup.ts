@@ -1,3 +1,5 @@
+import * as ERRORS from '@/config/errors';
+
 import Tile from './Tile';
 import TileSet from './TileSet';
 
@@ -7,15 +9,21 @@ export default class TileGroup extends TileSet {
   private tileMap: TileSet;
 
   constructor(initialTile: Tile, tileMap: TileSet) {
+    if (!tileMap.get(initialTile.position.asKey())) {
+      throw new Error(ERRORS.INITIAL_TILE_EXCLUDED);
+    }
+
     super([initialTile]);
+
     this.tileMap = tileMap;
     this.initialTile = initialTile;
 
-    this.uniteNeighbors(initialTile);
+    this.uniteNeighbors(this.initialTile);
   }
 
   public setColor(color: string): void {
     this.forEach((tile) => tile.setColor(color));
+    this.clear();
     this.uniteNeighbors(this.initialTile);
   }
 
@@ -26,7 +34,7 @@ export default class TileGroup extends TileSet {
       .filter((neighbor) => neighbor.color === tile.color);
 
     if (neighbors.size > 0) {
-      [...neighbors.values()].forEach((neighbor) => {
+      neighbors.forEach((neighbor) => {
         this.set(neighbor.position.asKey(), neighbor);
         this.uniteNeighbors(neighbor);
       });
