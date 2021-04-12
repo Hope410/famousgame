@@ -2,6 +2,9 @@ import Game from '@/domain/Game';
 
 import { TILE_COLORS, TILE_MAP_SIZE, TILE_SIZE } from '@/config/settings';
 
+import AISolver from './solvers/AISolver';
+import GameView from './view/GameView';
+
 (function main() {
   const canvas = document.querySelector<HTMLCanvasElement>('#canvas');
   if (!canvas) {
@@ -20,4 +23,17 @@ import { TILE_COLORS, TILE_MAP_SIZE, TILE_SIZE } from '@/config/settings';
     mapSize: TILE_MAP_SIZE,
     colors: TILE_COLORS,
   });
+
+  const gameView = new GameView(ctx, {
+    tileSize: TILE_SIZE,
+  });
+
+  const aiSolver = new AISolver({
+    game,
+    onStep: () => gameView.render(game),
+    onSolve: () => alert('Game Solved!'),
+  });
+
+  gameView.render(game);
+  aiSolver.solve();
 })();

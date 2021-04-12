@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <div class="app" id="app">
-      <div class="app__controls"></div>
-      <canvas class="app__canvas" id="canvas"></canvas>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+
+<body>
+    <div class="game" id="app">
+        <div class="game__controls">
+            <button class="game__control-btn">Start
+        </div>
+        <select class="game__solver">
+            <option class="game__solver-option">AI</option>
+            <option class="game__solver-option">Player</option>
+        </select>
+        <div class="game__colors"></div>
     </div>
-  </body>
+    <canvas class="game__canvas" id="canvas"></canvas>
+    </div>
+</body>
+
 </html>

@@ -1,7 +1,7 @@
 import { Tuple2D } from '@/types';
 
 export const DELIMITER = '.';
-export const TILE_MAP_SIZE: Tuple2D<number> = [8, 8];
+export const TILE_MAP_SIZE: Tuple2D<number> = [32, 32];
 export const TILE_SIZE = 16;
 export const TILE_COLORS = [
   '#6D8C81',

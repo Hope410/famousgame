@@ -1,23 +1,18 @@
-import * as path from "path";
-import * as webpack from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as path from 'path';
+import * as webpack from 'webpack';
 
 import 'webpack-dev-server';
 
 const config: webpack.Configuration = {
-  mode: "development",
+  mode: 'development',
   devServer: {
     compress: true,
     port: 3000,
     hot: true,
-    host: "0.0.0.0",
-    allowedHosts: [
-      ".repl.it",
-      ".repl.co",
-      ".repl.run"
-    ]
+    allowedHosts: ['.repl.it', '.repl.co', '.repl.run'],
   },
-  entry: "./src/main.ts",
+  entry: './src/main.ts',
   module: {
     rules: [
       {
@@ -29,21 +24,21 @@ const config: webpack.Configuration = {
   },
   resolve: {
     alias: {
-      '@': './'
+      '@': path.resolve(__dirname, 'src'),
     },
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
   },
   optimization: {
-    runtimeChunk: "single",
+    runtimeChunk: 'single',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Famous Game",
-      template: './public/index.html'
+      title: 'Famous Game',
+      template: './public/index.html',
     }),
   ],
 };
