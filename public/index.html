@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-        <%= htmlWebpackPlugin.options.title %>
-    </title>
-</head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
 
-<body>
+  <body>
     <div class="game" id="app">
-        <div class="game__controls">
-            <button class="game__control-btn">Start
+      <div class="game__container">
+        <div class="game__stats">
+          <div class="game__score-stat">
+            <div class="game__score-stat-label">Score:</div>
+            <div class="game__score-stat-value" id="score-value">-</div>
+          </div>
         </div>
-        <select class="game__solver">
-            <option class="game__solver-option">AI</option>
-            <option class="game__solver-option">Player</option>
-        </select>
-        <div class="game__colors"></div>
+        <div class="game__controls">
+          <button class="game__control-btn" id="start-btn">Start</button>
+          <select class="game__solver-select" id="solver-select">
+            <option selected class="game__solver-select-option">
+              Choose game solver
+            </option>
+            <option class="game__solver-select-option" value="ai">AI</option>
+            <option class="game__solver-select-option" value="player">
+              Player
+            </option>
+          </select>
+          <div class="game__colors-container" id="colors-container"></div>
+        </div>
+        <canvas class="game__canvas" id="canvas"></canvas>
+      </div>
     </div>
-    <canvas class="game__canvas" id="canvas"></canvas>
-    </div>
-</body>
-
+  </body>
 </html>

@@ -15,11 +15,11 @@ interface GameOptions {
 }
 
 export default class Game {
-  tileMap: TileSet;
+  public tileMap: TileSet;
 
-  tileGroup: TileGroup;
+  public tileGroup: TileGroup;
 
-  colors: string[];
+  public colors: string[];
 
   constructor(payload: GameOptions | TileSet) {
     if (payload instanceof TileSet) {
@@ -52,7 +52,7 @@ export default class Game {
     return tile;
   }
 
-  get isWin() {
+  public get isWin() {
     return _.every(
       [...this.tileMap.values()],
       (tile) => tile.color === this.initialTile.color

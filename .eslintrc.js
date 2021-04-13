@@ -47,6 +47,7 @@ module.exports = {
       },
     ],
     'sort-imports': 'off',
-    'no-plusplus': 'off'
+    'no-plusplus': 'off',
+    'no-alert': 'off'
   }
 };

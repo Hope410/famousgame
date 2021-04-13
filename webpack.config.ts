@@ -9,12 +9,19 @@ const config: webpack.Configuration = {
   devServer: {
     compress: true,
     port: 3000,
+    host: '0.0.0.0',
     hot: true,
-    allowedHosts: ['.repl.it', '.repl.co', '.repl.run'],
   },
   entry: './src/main.ts',
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          { loader: 'style-loader', options: { injectType: 'linkTag' } },
+          { loader: 'file-loader', options: { name: '[contenthash].[ext]' } },
+        ],
+      },
       {
         test: /\.ts$/,
         use: 'ts-loader',

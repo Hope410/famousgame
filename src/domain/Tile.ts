@@ -6,16 +6,16 @@ interface TileOptions {
 }
 
 export default class Tile {
-  position: Vector2D;
+  public readonly position: Vector2D;
 
-  color: string;
+  public color: string;
 
   constructor(options: TileOptions) {
     this.position = options.position;
     this.color = options.color;
   }
 
-  setColor(color: string) {
+  public setColor(color: string) {
     this.color = color;
   }
 }

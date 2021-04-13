@@ -5,6 +5,8 @@ import TileSet from '@/domain/TileSet';
 import { ISolver, ISolverOptions } from './interfaces';
 
 export default class AISolver implements ISolver {
+  score: number = 0;
+
   options: ISolverOptions;
 
   constructor(options: ISolverOptions) {
@@ -15,7 +17,9 @@ export default class AISolver implements ISolver {
     const { game, onStep } = this.options;
 
     game.tileGroup.setColor(color);
-    onStep();
+    this.score += 1;
+
+    onStep(this.score);
   }
 
   solve() {
@@ -47,7 +51,7 @@ export default class AISolver implements ISolver {
 
       if (game.isWin) {
         clearInterval(solveInterval);
-        onSolve();
+        onSolve(this.score);
       }
     }, 1000);
   }
