@@ -1,71 +1,72 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
 .game {
-    width: 100%;
-    height: 100vh;
+  width: 100%;
+  height: 100vh;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.game__container  > *:not(:last-child) {
-    margin-bottom: 14px;
+.game__container > *:not(:last-child) {
+  margin-bottom: 14px;
 }
 
 .game__score-stat {
-    display: flex;
+  display: flex;
 }
 
 .game__score-stat-label {
-    margin-right: 4px;
-    font-weight: 500;
+  margin-right: 4px;
+  font-weight: 500;
 }
 
 .game__controls {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .game__controls > *:not(:last-child) {
-    margin-right: 14px;
+  margin-right: 14px;
 }
 
-.game__control-btn, .game__solver-select {
-    cursor: pointer;
-    padding: 4px 8px;
+.game__control-btn,
+.game__solver-select {
+  cursor: pointer;
+  padding: 4px 8px;
 
-    background: white;
-    border: 2px solid black;
-    border-radius: 8px;
-    font-weight: 500;
-    color: black;
+  background: white;
+  border: 2px solid black;
+  border-radius: 8px;
+  font-weight: 500;
+  color: black;
 }
 
 .game__colors-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .game__colors-container > *:not(:last-child) {
-    margin-right: 14px;
+  margin-right: 14px;
 }
 
 .game__color {
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-    border: 2px solid black;
-    border-radius: 8px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 8px;
 }
 
 .game__canvas {
-    border: 2px solid black;
-    border-radius: 8px;
+  border: 2px solid black;
+  border-radius: 8px;
 }
